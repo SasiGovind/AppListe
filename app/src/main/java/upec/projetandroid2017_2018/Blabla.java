@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import upec.projetandroid2017_2018.Accueil.AccueilActivity;
+
+public class Blabla extends AppCompatActivity {
 
     DataBase db;
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_accueil);
 
         db = new DataBase(this);
 
@@ -36,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void addUser(){
         boolean isInsered = db.addUser(username.getText().toString(), password.getText().toString());
-        if (isInsered) Toast.makeText(MainActivity.this, "Data Insered", Toast.LENGTH_LONG).show();
-        else Toast.makeText(MainActivity.this, "Data NOT Insered", Toast.LENGTH_LONG).show();
+        if (isInsered) Toast.makeText(Blabla.this, "Data Insered", Toast.LENGTH_LONG).show();
+        else Toast.makeText(Blabla.this, "Data NOT Insered", Toast.LENGTH_LONG).show();
     }
 
     private void deleteUser(){
         boolean b = db.deleteUser(username.getText().toString(), password.getText().toString());
-        if (b) Toast.makeText(MainActivity.this, "Deleted", Toast.LENGTH_LONG).show();
-        else  Toast.makeText(MainActivity.this, "NOT Deleted", Toast.LENGTH_LONG).show();
+        if (b) Toast.makeText(Blabla.this, "Deleted", Toast.LENGTH_LONG).show();
+        else  Toast.makeText(Blabla.this, "NOT Deleted", Toast.LENGTH_LONG).show();
     }
 
     private void showUser(){
