@@ -133,6 +133,11 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View v =navigationView.getHeaderView(0);
+        //View v = getLayoutInflater().inflate(R.id.drawer_layout);
+        ((TextView) v.findViewById(R.id.userNameNav)).setText(username);
+        ((TextView) v.findViewById(R.id.userEmailNav)).setText(username+"@gmail.com");
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         tvEmptyTextView = (TextView) findViewById(R.id.empty_view);
