@@ -162,6 +162,7 @@ public class ElementScreen extends AppCompatActivity implements SearchView.OnQue
             //Snackbar.make(getCurrentFocus(), "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             return true;
         }else if (id == R.id.action_his) {
+            new showhisto().execute();
             //new TestScreen.showhistorique().execute();
             //Snackbar.make(getCurrentFocus(), "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             return true;
@@ -641,6 +642,8 @@ public class ElementScreen extends AppCompatActivity implements SearchView.OnQue
             try {
                 JSONObject data = new JSONObject();
                 data.put("histo", "");
+                data.put("value", list);
+
                 return ConnectionHandler.sendRequestToArray(data);
             } catch(Exception e){ return null; }
         }
