@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="upec.projetandroid2017_2018.MainActivity">
+    tools:context="upec.projetandroid2017_2018.Accueil.AccueilActivity">
 
 
     <TextView
@@ -14,14 +14,15 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
         android:text="UserName"
         android:textColor="@android:color/holo_red_light"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/username"
@@ -49,6 +50,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text="Password"
         android:textColor="@android:color/holo_red_light"
         app:layout_constraintBottom_toTopOf="@+id/password"
@@ -104,20 +106,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/connexion" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="360dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="Bienvenue sur votre application de Gestion de Listes Collaboratifs"
-        android:textAppearance="@style/TextAppearance.Compat.Notification.Info.Media"
-        android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
 </android.support.constraint.ConstraintLayout>

@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="upec.projetandroid2017_2018">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +18,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Accueil.AccueilActivity">
+
+            <!-- <activity android:name=".ConnectedActivity"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Accueil.InscriptionActivity" />
+        <activity android:name=".Lists.ConnectedActivity" />
+        <!-- <activity android:name=".AccueilActivity"></activity> -->
+        <activity android:name=".Elements.ElementActivity" />
+        <activity
+            android:name=".Lists.TestScreen"
+            android:label="TestScreen"
+            android:parentActivityName=".Accueil.AccueilActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name=".AlertReceiver" />
+
+        <activity android:name=".NotificationActivity" />
+        <activity
+            android:name=".Lists.ListHandler"
+            android:label="@string/title_activity_list_handler"
+            android:parentActivityName=".Lists.TestScreen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Elements.ElementScreen"
+            android:parentActivityName=".Lists.TestScreen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Elements.ElementHandler"
+            android:parentActivityName=".Elements.ElementScreen" />
+        <activity
+            android:name=".Elements.OneElement"
+            android:label="@string/title_activity_one_element"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
