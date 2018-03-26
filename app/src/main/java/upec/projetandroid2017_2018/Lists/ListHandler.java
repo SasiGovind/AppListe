@@ -268,7 +268,7 @@ public class ListHandler extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(ListHandler.this, "RadioButton Clicked : " + axe.indexOf(view), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ListHandler.this, "RadioButton Clicked : " + axe.indexOf(view), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -508,6 +508,10 @@ public class ListHandler extends AppCompatActivity {
         ((ImageView) dialogView.findViewById(R.id.iconView18)).setTag(R.mipmap.ic_travel);
         ((ImageView) dialogView.findViewById(R.id.iconView19)).setTag(R.mipmap.ic_business);
         ((ImageView) dialogView.findViewById(R.id.iconView20)).setTag(R.mipmap.ic_movie);
+        ((ImageView) dialogView.findViewById(R.id.iconView21)).setTag(R.mipmap.ic_personel);
+        ((ImageView) dialogView.findViewById(R.id.iconView22)).setTag(R.mipmap.ic_palette);
+        ((ImageView) dialogView.findViewById(R.id.iconView23)).setTag(R.mipmap.ic_account);
+        ((ImageView) dialogView.findViewById(R.id.iconView24)).setTag(R.mipmap.ic_people);
     }
 
     //historique -----------------------------------------------------------------------------------------------------------------------------------------------------------------
