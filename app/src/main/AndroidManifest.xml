@@ -37,7 +37,7 @@
             android:parentActivityName=".Accueil.AccueilActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <receiver android:name=".AlertReceiver" />
+        <receiver android:name=".Lists.AlertReceiver" />
 
         <activity android:name=".NotificationActivity" />
         <activity

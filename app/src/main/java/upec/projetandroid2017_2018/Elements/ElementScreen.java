@@ -331,17 +331,28 @@ public class ElementScreen extends AppCompatActivity implements SearchView.OnQue
                 viewHolder.btnLocation.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(v.getContext(), "Clicked on Information " +viewHolder.Name.getText().toString(), Toast.LENGTH_SHORT).show();
+                        StringBuilder text = new StringBuilder();
+                        text.append("Title : "+mDataSet.get(position).getElementName());
+                        text.append("\nDescription : "+mDataSet.get(position).getDescription());
+                        text.append("\nPriority : "+mDataSet.get(position).getPriority());
+                        text.append("\nCreated by : "+mDataSet.get(position).getUsername());
+                        text.append("\nDone : "+((mDataSet.get(position).getFait()==0)?"Not":"Yes"));
+                        Toast.makeText(v.getContext(), text.toString(), Toast.LENGTH_LONG).show();
                     }
                 });
 
                 viewHolder.Share.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        /*
-                        new getElementsList(viewHolder.Name.getText().toString()).execute();
-                        Toast.makeText(view.getContext(), "Clicked on Share " + viewHolder.Name.getText().toString(), Toast.LENGTH_SHORT).show();
-                        */
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        StringBuilder text = new StringBuilder();
+                        text.append("Liste : "+list);
+                        text.append("\n->Element : " + mDataSet.get(position).getElementName());
+                        text.append("\n->Description : " + mDataSet.get(position).getDescription());
+                        text.append("\n->Priority : " + mDataSet.get(position).getPriority() +"/10");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, text.toString());
+                        startActivity(shareIntent);
                     }
                 });
 

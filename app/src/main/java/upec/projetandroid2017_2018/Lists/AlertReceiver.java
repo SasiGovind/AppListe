@@ -1,4 +1,4 @@
-package upec.projetandroid2017_2018;
+package upec.projetandroid2017_2018.Lists;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
 import upec.projetandroid2017_2018.Accueil.AccueilActivity;
+import upec.projetandroid2017_2018.R;
 
 /**
  * Created by Sasig on 17/03/2018.

@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="70dp"
         android:scaleType="center"
-        android:src="@mipmap/ic_pin"
+        android:src="@mipmap/ic_pinned"
         app:elevation="6dp"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"

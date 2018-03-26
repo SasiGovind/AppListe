@@ -134,7 +134,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:visibility="gone"
-                app:srcCompat="@mipmap/ic_pin" />
+                app:srcCompat="@mipmap/ic_pinned" />
         </LinearLayout>
 
     </LinearLayout>

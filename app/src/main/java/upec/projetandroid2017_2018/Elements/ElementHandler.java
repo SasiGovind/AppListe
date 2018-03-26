@@ -2,12 +2,15 @@ package upec.projetandroid2017_2018.Elements;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.speech.RecognizerIntent;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,10 +38,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import upec.projetandroid2017_2018.CustomSeekBarLabels;
 import upec.projetandroid2017_2018.DatabaseHandler.ConnectionHandler;
 import upec.projetandroid2017_2018.HistoData;
+import upec.projetandroid2017_2018.Lists.ListHandler;
 import upec.projetandroid2017_2018.Lists.TestScreen;
 import upec.projetandroid2017_2018.R;
 
@@ -47,6 +52,9 @@ public class ElementHandler extends AppCompatActivity {
     private Intent parent;
     private String username,method,list;
     private Button colorPicker;
+
+    private final int REQ_VOICE_RECOGNITION_CODE = 142;
+    private TextView tempEditText;
 
     private String lastElement1;
 
@@ -77,6 +85,25 @@ public class ElementHandler extends AppCompatActivity {
 
         newElement = (TextInputEditText) findViewById(R.id.element);
         newDescription = (TextInputEditText) findViewById(R.id.description);
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        tempEditText = newElement;
+
+        LinearLayout t1 = (LinearLayout) findViewById(R.id.linearLayout9);
+        LinearLayout t2 = (LinearLayout) findViewById(R.id.linearLayout10);
+        t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tempEditText = newElement;
+            }
+        });
+        t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tempEditText = newDescription;
+            }
+        });
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
         priority = (SeekBar) findViewById(R.id.seekPrio);
         colorPicker = (Button) findViewById(R.id.buttonColor);
 
@@ -119,7 +146,7 @@ public class ElementHandler extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.ok_item, menu);
+        inflater.inflate(R.menu.ok_item_mic, menu);
         return true;
     }
 
@@ -133,6 +160,9 @@ public class ElementHandler extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
+            case R.id.ok_mic:
+                openVoiceRecognition();
+                break;
             case R.id.ok_action:
                 String response = "Error";
                 if (!newElement.getText().toString().isEmpty()){
@@ -275,6 +305,35 @@ public class ElementHandler extends AppCompatActivity {
                 }
                 Log.i("Après", "modif élément dans la liste");
             } else Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////// Voice Recognition
+    private void openVoiceRecognition() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak Now");
+
+        try {
+            startActivityForResult(intent, REQ_VOICE_RECOGNITION_CODE);
+        }catch (ActivityNotFoundException e){
+            Toast.makeText(ElementHandler.this, "Voice Recognition Failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case REQ_VOICE_RECOGNITION_CODE:
+                if(resultCode == RESULT_OK && data!=null){
+                    ArrayList<String> voiceText = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    tempEditText.setText(voiceText.get(0));
+                    tempEditText= newDescription;
+                }
+                break;
         }
     }
 

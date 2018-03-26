@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context="upec.projetandroid2017_2018.Elements.ElementHandler">
 
     <LinearLayout
@@ -103,7 +104,7 @@
         android:layout_marginTop="6dp"
         android:orientation="horizontal"
         android:paddingTop="5dp"
-        android:weightSum="10"
+        android:weightSum="20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
@@ -114,13 +115,13 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
-            app:srcCompat="?android:attr/textSelectHandleLeft" />
+            app:srcCompat="@mipmap/ic_palette" />
 
         <Button
             android:id="@+id/buttonColor"
             android:layout_width="wrap_content"
             android:layout_height="37dp"
-            android:layout_weight="9"
+            android:layout_weight="19"
             android:background="@android:color/background_light"
             android:onClick="openColorPicker"
             android:text="List Color"

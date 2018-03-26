@@ -1,5 +1,7 @@
 package upec.projetandroid2017_2018.Lists;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -259,9 +261,26 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
             actuel_option = "dnotes";
             new showListOfList().execute();
         } else if (id == R.id.nav_share) {
-
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            StringBuilder text = new StringBuilder();
+            text.append("[Collaborative ToDo List Project]");
+            text.append("\nFor 3rd Year Computer Science");
+            text.append("\nAuthors n°1 : Sasikumar Govindarajalou");
+            text.append("\nAuthors n°2 : Yersenia Racerlyn");
+            text.append("\nHave a wonderful day :)");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, text.toString());
+            startActivity(shareIntent);
         } else if (id == R.id.nav_send) {
-
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            StringBuilder text = new StringBuilder();
+            text.append(actuel_category + " Listes from "+ actuel_option + " notes");
+            for(ItemData it : mDataSet){
+                text.append("\n-> "+it.getName());
+            }
+            shareIntent.putExtra(Intent.EXTRA_TEXT, text.toString());
+            startActivity(shareIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -369,6 +388,15 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
                 if(item.getPin()==0)viewHolder.pinned.setVisibility(View.GONE);
                 else viewHolder.pinned.setVisibility(View.VISIBLE);
 
+                if(item.getReminder()==1){
+                    Intent myIntent = new Intent(getApplicationContext(), AlertReceiver.class);
+                    myIntent.putExtra(item.getName(),item.getVisibility());
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+                    alarmManager.set(AlarmManager.RTC_WAKEUP,item.getReminderTime(),pendingIntent);
+                    Log.i("NOTIFICATION", "FAIT");
+                }
+
                 /*int height = viewHolder.mainSLayout.getLayoutParams().height;
                 viewHolder.extrasLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, height));
                 */
@@ -415,7 +443,14 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
                 viewHolder.btnLocation.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(v.getContext(), "Clicked on Information " +viewHolder.Name.getText().toString(), Toast.LENGTH_SHORT).show();
+                        StringBuilder text = new StringBuilder();
+                        text.append("Title : "+mDataSet.get(position).getName());
+                        text.append("\nCategory : "+mDataSet.get(position).getCategory());
+                        text.append("\nVisibility : "+mDataSet.get(position).getVisibility());
+                        text.append("\nCreated by : "+mDataSet.get(position).getInfo());
+                        text.append("\nReminder : "+((mDataSet.get(position).getReminder()==0)?"Not":"Yes"));
+                        text.append("\nDone : "+((mDataSet.get(position).getFait()==0)?"Not":"Yes"));
+                        Toast.makeText(v.getContext(), text.toString(), Toast.LENGTH_LONG).show();
                     }
                 });
 
