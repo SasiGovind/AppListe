@@ -292,7 +292,7 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String catName = adapterView.getItemAtPosition(i).toString();
         actuel_category = catName;
-        Toast.makeText(this, catName, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, catName, Toast.LENGTH_LONG).show();
         new showListOfList().execute();
     }
 
@@ -389,15 +389,21 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
                 else viewHolder.pinned.setVisibility(View.VISIBLE);
 
                 if(item.getReminder()==1){
-                    Intent myIntent = new Intent(getApplicationContext(), AlertReceiver.class);
-                    myIntent.putExtra("Title",item.getName());
-                    myIntent.putExtra("Mode",item.getVisibility());
-                    myIntent.putExtra("Category",item.getCategory());
-                    myIntent.putExtra("Icon",item.getListIcon());
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-                    alarmManager.set(AlarmManager.RTC_WAKEUP,item.getReminderTime(),pendingIntent);
-                    Log.i("NOTIFICATION", "FAIT");
+                    long timeNow = System.currentTimeMillis();
+                    Log.i(".............TimeNow", timeNow+"");
+                    Log.i("..............RTime", item.getReminderTime()+"");
+                    if(item.getReminderTime() > timeNow){
+                        Intent myIntent = new Intent(getApplicationContext(), AlertReceiver.class);
+                        myIntent.putExtra("Title",item.getName());
+                        myIntent.putExtra("Mode",item.getVisibility());
+                        myIntent.putExtra("Category",item.getCategory());
+                        myIntent.putExtra("Icon",item.getListIcon());
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+                        alarmManager.set(AlarmManager.RTC_WAKEUP,item.getReminderTime(),pendingIntent);
+                        Log.i("NOTIFICATION", "FAIT");
+                        Toast.makeText(getApplicationContext(), "Notification définie pour "+ item.getName(),Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 /*int height = viewHolder.mainSLayout.getLayoutParams().height;

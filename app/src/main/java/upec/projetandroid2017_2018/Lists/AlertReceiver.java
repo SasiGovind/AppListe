@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
+import java.util.Calendar;
+
 import upec.projetandroid2017_2018.Accueil.AccueilActivity;
 import upec.projetandroid2017_2018.R;
 
@@ -22,7 +24,6 @@ public class AlertReceiver extends BroadcastReceiver {
 
         Intent intent1 =  new Intent(context, AccueilActivity.class);
         intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
         String title = intent.getStringExtra("Title");
         String mode = intent.getStringExtra("Mode");
         String category = intent.getStringExtra("Category");
@@ -38,5 +39,6 @@ public class AlertReceiver extends BroadcastReceiver {
                 .setContentInfo(mode)
                 .setAutoCancel(true);
         notificationManager.notify(100,builder.build());
+
     }
 }
