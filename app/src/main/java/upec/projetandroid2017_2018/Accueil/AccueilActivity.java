@@ -27,7 +27,7 @@ public class AccueilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        setTitle("My new title");
+        setTitle("Network ToDo List");
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
 

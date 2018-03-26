@@ -390,7 +390,10 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
 
                 if(item.getReminder()==1){
                     Intent myIntent = new Intent(getApplicationContext(), AlertReceiver.class);
-                    myIntent.putExtra(item.getName(),item.getVisibility());
+                    myIntent.putExtra("Title",item.getName());
+                    myIntent.putExtra("Mode",item.getVisibility());
+                    myIntent.putExtra("Category",item.getCategory());
+                    myIntent.putExtra("Icon",item.getListIcon());
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
                     alarmManager.set(AlarmManager.RTC_WAKEUP,item.getReminderTime(),pendingIntent);

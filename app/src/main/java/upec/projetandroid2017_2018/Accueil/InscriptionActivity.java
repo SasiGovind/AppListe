@@ -29,6 +29,8 @@ public class InscriptionActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        setTitle("Inscription");
+
         username = (EditText) findViewById(R.id.username);
         username.setText(intent.getStringExtra("username"));
         Log.i("BIPBIP inscription ", "onCreate: username -> "+intent.getStringExtra("username"));

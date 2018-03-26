@@ -68,9 +68,11 @@ public class OneElement extends AppCompatActivity {
         String description = parent.getStringExtra("description");
         int ecolor = parent.getIntExtra("ecolor",Color.BLACK);
 
-        AppBarLayout abl = (AppBarLayout) findViewById(R.id.oneAppBarLayout);
-        abl.setBackgroundColor(ecolor);
-/**
+        if(ecolor < -10000 && ecolor >10000) {
+            AppBarLayout abl = (AppBarLayout) findViewById(R.id.oneAppBarLayout);
+            abl.setBackgroundColor(ecolor);
+        }
+        /**
         mSeekLin.setBackgroundColor(ecolor);
         mSeekLin.getBackground().setAlpha(50);*/
 

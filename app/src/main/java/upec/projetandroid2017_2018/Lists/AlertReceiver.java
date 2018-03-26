@@ -24,15 +24,18 @@ public class AlertReceiver extends BroadcastReceiver {
         intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         String title = intent.getStringExtra("Title");
+        String mode = intent.getStringExtra("Mode");
+        String category = intent.getStringExtra("Category");
+        int icon = intent.getIntExtra("Icon", R.mipmap.ic_home);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 100, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"ChannelID")
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_menu_camera)
-                .setTicker("Hearty365")
+                .setSmallIcon(icon)
+                .setTicker("ToDo List")
                 .setContentTitle(title)
-                .setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-                .setContentInfo("HELLO EVERY BODY")
+                .setContentText("Category : "+category)
+                .setContentInfo(mode)
                 .setAutoCancel(true);
         notificationManager.notify(100,builder.build());
     }
