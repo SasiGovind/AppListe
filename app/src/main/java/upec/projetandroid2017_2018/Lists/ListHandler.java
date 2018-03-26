@@ -278,6 +278,7 @@ public class ListHandler extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         Intent back = new Intent(this, TestScreen.class);
+        back.putExtra("username", username);
         startActivity(back);
         Log.i("hg", "onBackPressed: ");
     }
@@ -490,6 +491,23 @@ public class ListHandler extends AppCompatActivity {
         ((ImageView) dialogView.findViewById(R.id.iconView1)).setTag(R.mipmap.ic_histo);
         ((ImageView) dialogView.findViewById(R.id.iconView2)).setTag(R.mipmap.ic_smiley);
         ((ImageView) dialogView.findViewById(R.id.iconView3)).setTag(R.mipmap.ic_fingerprint);
+        ((ImageView) dialogView.findViewById(R.id.iconView4)).setTag(R.mipmap.ic_event);
+        ((ImageView) dialogView.findViewById(R.id.iconView5)).setTag(R.mipmap.ic_holyday);
+        ((ImageView) dialogView.findViewById(R.id.iconView6)).setTag(R.mipmap.ic_school);
+        ((ImageView) dialogView.findViewById(R.id.iconView7)).setTag(R.mipmap.ic_gift);
+        ((ImageView) dialogView.findViewById(R.id.iconView8)).setTag(R.mipmap.ic_music);
+        ((ImageView) dialogView.findViewById(R.id.iconView9)).setTag(R.mipmap.ic_flower);
+        ((ImageView) dialogView.findViewById(R.id.iconView10)).setTag(R.mipmap.ic_world);
+        ((ImageView) dialogView.findViewById(R.id.iconView11)).setTag(R.mipmap.ic_cook);
+        ((ImageView) dialogView.findViewById(R.id.iconView12)).setTag(R.mipmap.ic_urgent);
+        ((ImageView) dialogView.findViewById(R.id.iconView13)).setTag(R.mipmap.ic_thumbdown);
+        ((ImageView) dialogView.findViewById(R.id.iconView14)).setTag(R.mipmap.ic_pets);
+        ((ImageView) dialogView.findViewById(R.id.iconView15)).setTag(R.mipmap.ic_birthday);
+        ((ImageView) dialogView.findViewById(R.id.iconView16)).setTag(R.mipmap.ic_thumbup);
+        ((ImageView) dialogView.findViewById(R.id.iconView17)).setTag(R.mipmap.ic_secured);
+        ((ImageView) dialogView.findViewById(R.id.iconView18)).setTag(R.mipmap.ic_travel);
+        ((ImageView) dialogView.findViewById(R.id.iconView19)).setTag(R.mipmap.ic_business);
+        ((ImageView) dialogView.findViewById(R.id.iconView20)).setTag(R.mipmap.ic_movie);
     }
 
     //historique -----------------------------------------------------------------------------------------------------------------------------------------------------------------

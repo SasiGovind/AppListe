@@ -18,10 +18,11 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:text="Icons"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textSize="37sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,6 +53,170 @@
                 android:layout_weight="1"
                 android:onClick="setListIcon"
                 app:srcCompat="@mipmap/ic_fingerprint" />
+
+            <ImageView
+                android:id="@+id/iconView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_event" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iconView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_holyday" />
+
+            <ImageView
+                android:id="@+id/iconView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                android:tag="R.mipmap.ic_home"
+                app:srcCompat="@mipmap/ic_school" />
+
+            <ImageView
+                android:id="@+id/iconView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_gift" />
+
+            <ImageView
+                android:id="@+id/iconView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_music" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iconView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_flower" />
+
+            <ImageView
+                android:id="@+id/iconView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                android:tag="R.mipmap.ic_home"
+                app:srcCompat="@mipmap/ic_world" />
+
+            <ImageView
+                android:id="@+id/iconView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_cook" />
+
+            <ImageView
+                android:id="@+id/iconView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_urgent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iconView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_thumbdown" />
+
+            <ImageView
+                android:id="@+id/iconView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                android:tag="R.mipmap.ic_home"
+                app:srcCompat="@mipmap/ic_pets" />
+
+            <ImageView
+                android:id="@+id/iconView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_birthday" />
+
+            <ImageView
+                android:id="@+id/iconView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_thumbup" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iconView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_secured" />
+
+            <ImageView
+                android:id="@+id/iconView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                android:tag="R.mipmap.ic_home"
+                app:srcCompat="@mipmap/ic_travel" />
+
+            <ImageView
+                android:id="@+id/iconView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_business" />
+
+            <ImageView
+                android:id="@+id/iconView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setListIcon"
+                app:srcCompat="@mipmap/ic_movie" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

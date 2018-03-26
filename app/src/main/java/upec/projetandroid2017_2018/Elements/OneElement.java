@@ -173,7 +173,7 @@ public class OneElement extends AppCompatActivity {
         protected JSONArray doInBackground(String... arg0) {
             try {
                 JSONObject data = new JSONObject();
-                data.put("histo", "");
+                data.put("histoEO", "");
                 data.put("value", oneElement.getText().toString());
                 return ConnectionHandler.sendRequestToArray(data);
             } catch(Exception e){ return null; }

@@ -1,5 +1,6 @@
 package upec.projetandroid2017_2018.Elements;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -139,6 +140,19 @@ public class ElementScreen extends AppCompatActivity implements SearchView.OnQue
     }
 
     @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        /*Intent back = new Intent(this, ElementScreen.class);
+        startActivity(back);*/
+        Intent intent = new Intent();
+        intent.putExtra("username", username);
+        intent.putExtra("response", "NON");
+        setResult(Activity.RESULT_CANCELED, intent);
+        finish();
+        Log.i("hg", "onBackPressed: ");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.mainelement, menu);
@@ -165,6 +179,9 @@ public class ElementScreen extends AppCompatActivity implements SearchView.OnQue
             new showhisto().execute();
             //new TestScreen.showhistorique().execute();
             //Snackbar.make(getCurrentFocus(), "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            return true;
+        }else if(id == android.R.id.home){
+            onBackPressed();
             return true;
         }
 
@@ -641,7 +658,7 @@ public class ElementScreen extends AppCompatActivity implements SearchView.OnQue
         protected JSONArray doInBackground(String... arg0) {
             try {
                 JSONObject data = new JSONObject();
-                data.put("histo", "");
+                data.put("histoES", "");
                 data.put("value", list);
 
                 return ConnectionHandler.sendRequestToArray(data);
