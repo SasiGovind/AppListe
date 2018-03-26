@@ -402,7 +402,7 @@ public class TestScreen extends AppCompatActivity implements NavigationView.OnNa
                         AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
                         alarmManager.set(AlarmManager.RTC_WAKEUP,item.getReminderTime(),pendingIntent);
                         Log.i("NOTIFICATION", "FAIT");
-                        Toast.makeText(getApplicationContext(), "Notification définie pour "+ item.getName(),Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "Notification définie pour "+ item.getName(),Toast.LENGTH_SHORT).show();
                     }
                 }
 
