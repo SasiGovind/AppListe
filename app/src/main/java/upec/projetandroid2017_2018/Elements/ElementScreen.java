@@ -83,7 +83,7 @@ public class ElementScreen extends AppCompatActivity implements SearchView.OnQue
 
 
         Log.i("COLOR", "onCreate: COOOOOOOOOOOOOOOOOOOOLOR"+ecolor);
-        if(ecolor < -10000 && ecolor >10000){
+        if(ecolor < -10000 || ecolor >10000){
             ////////////////////////////////////////////////////////////////////////////////////////////
             AppBarLayout abl = (AppBarLayout) findViewById(R.id.app_bar_layout);
             abl.setBackgroundColor(ecolor);
