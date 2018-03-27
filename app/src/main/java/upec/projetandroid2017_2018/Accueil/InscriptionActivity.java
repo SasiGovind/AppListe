@@ -151,7 +151,7 @@ public class InscriptionActivity extends AppCompatActivity {
 */
     //si on arrive à sa connecter on passe à la page suivante
     private void goToConnectedActivity(){
-        Intent intent = new Intent(InscriptionActivity.this, TestScreen.class);//
+        Intent intent = new Intent(InscriptionActivity.this, TestScreen.class);////
         intent.putExtra("username", username.getText().toString());
         intent.putExtra("password", password.getText().toString());
         Log.i("BIPBIP", "onClick inscription: username -> "+username.getText()+"| password -> "+password.getText());
