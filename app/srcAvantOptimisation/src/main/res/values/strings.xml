@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProjetAndroid2017-2018</string>
+    <string name="acc_der_aux_listes">Accéder aux listes :</string>
+    <string name="add_list">Add List</string>
+</resources>

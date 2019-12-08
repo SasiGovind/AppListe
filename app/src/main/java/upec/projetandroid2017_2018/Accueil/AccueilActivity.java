@@ -57,6 +57,7 @@ public class AccueilActivity extends AppCompatActivity {
             // si oui aller a la page de connection avec username et password
             // sinon rester
             new tryconnexion().execute();
+                goToConnectedActivity();
             }
         });
     }

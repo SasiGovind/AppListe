@@ -4,13 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.speech.RecognizerIntent;
+import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -39,10 +38,7 @@ import java.util.ArrayList;
 
 import upec.projetandroid2017_2018.Adapters.ElementRecyclerViewAdapter;
 import upec.projetandroid2017_2018.DatabaseHandler.ConnectionHandler;
-import upec.projetandroid2017_2018.Elements.ElementData;
 import upec.projetandroid2017_2018.HistoData;
-import upec.projetandroid2017_2018.Lists.ListHandler;
-import upec.projetandroid2017_2018.Lists.TestScreen;
 import upec.projetandroid2017_2018.R;
 
 public class ElementScreen extends AppCompatActivity implements SearchView.OnQueryTextListener{
